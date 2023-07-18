@@ -1,5 +1,6 @@
 {
 	"credit": "Made with Blockbench",
+	"render_type": "cutout",
 	"textures": {
 		"1": "createbb:block/brass_call_bell",
 		"particle": "createbb:block/brass_call_bell"

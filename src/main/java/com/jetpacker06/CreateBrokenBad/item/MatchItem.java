@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.CandleCakeBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -29,7 +30,8 @@ public class MatchItem extends Item {
         super(pProperties);
     }
     @Override
-    public InteractionResult useOn(UseOnContext pContext) {
+    @SuppressWarnings("all")
+    public @NotNull InteractionResult useOn(UseOnContext pContext) {
         Player player = pContext.getPlayer();
         Level level = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
@@ -44,9 +46,7 @@ public class MatchItem extends Item {
                 ItemStack itemstack = pContext.getItemInHand();
                 if (player instanceof ServerPlayer) {
                     CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer)player, blockpos1, itemstack);
-                    itemstack.hurtAndBreak(1, player, (p_41300_) -> {
-                        p_41300_.broadcastBreakEvent(pContext.getHand());
-                    });
+                    itemstack.hurtAndBreak(1, player, (p_41300_) -> p_41300_.broadcastBreakEvent(pContext.getHand()));
                     itemstack.shrink(1);
                 }
 
@@ -56,7 +56,7 @@ public class MatchItem extends Item {
             }
         } else {
             level.playSound(player, blockpos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
-            level.setBlock(blockpos, blockstate.setValue(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
+            level.setBlock(blockpos, blockstate.setValue(BlockStateProperties.LIT, Boolean.TRUE), 11);
             level.gameEvent(player, GameEvent.BLOCK_PLACE, blockpos);
             if (player != null) {
                 pContext.getItemInHand().hurtAndBreak(1, player, (p_41303_) -> {
@@ -69,7 +69,7 @@ public class MatchItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         pTooltipComponents.add(Component.translatable("match_tooltip"));
     }
 }

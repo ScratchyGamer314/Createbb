@@ -2,7 +2,7 @@ package com.jetpacker06.CreateBrokenBad.block;
 
 import com.jetpacker06.CreateBrokenBad.register.AllCustomTriggerAdvancements;
 import com.jetpacker06.CreateBrokenBad.register.AllSoundEvents;
-import com.jetpacker06.CreateBrokenBad.registrate.RBlockEntities;
+import com.jetpacker06.CreateBrokenBad.register.CBBBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
@@ -81,7 +81,7 @@ public class BrassCallBellBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(@NotNull BlockPos pPos, @NotNull BlockState pState) {
-        return new BrassCallBellBlockEntity(RBlockEntities.BRASS_CALL_BELL.get(), pPos, pState);
+        return new BrassCallBellBlockEntity(CBBBlockEntityTypes.BRASS_CALL_BELL.get(), pPos, pState);
     }
 
     @SuppressWarnings("deprecation")
@@ -94,7 +94,7 @@ public class BrassCallBellBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level pLevel, @NotNull BlockState pState, @NotNull BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, RBlockEntities.BRASS_CALL_BELL.get(), BrassCallBellBlockEntity::tick);
+        return createTickerHelper(pBlockEntityType, CBBBlockEntityTypes.BRASS_CALL_BELL.get(), BrassCallBellBlockEntity::tick);
     }
 
     public static class Trapped extends BrassCallBellBlock {

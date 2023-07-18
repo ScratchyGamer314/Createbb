@@ -1,20 +1,19 @@
-package com.jetpacker06.CreateBrokenBad.registrate;
+package com.jetpacker06.CreateBrokenBad.register;
 
-import com.jetpacker06.CreateBrokenBad.item.MatchItem;
-import com.jetpacker06.CreateBrokenBad.item.MethItem;
-import com.jetpacker06.CreateBrokenBad.item.NonConsumedCatalystItem;
-import com.jetpacker06.CreateBrokenBad.register.Tab;
+import com.jetpacker06.CreateBrokenBad.item.*;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 
-public class RItems {
+public class CBBItems {
+
     public static ItemEntry<MatchItem> MATCH;
     public static ItemEntry<Item> PSEUDOPHEDRINE;
-    public static ItemEntry<Item> SUDAFED;
-    public static ItemEntry<Item> SUDAFED_BOX;
-    public static ItemEntry<Item> EPHEDRA;
-    public static ItemEntry<Item> EPHEDRA_SEEDS;
+    public static ItemEntry<ToolTippedItem> SUDAFED;
+    public static ItemEntry<ToolTippedItem> SUDAFED_BOX;
+    public static ItemEntry<ToolTippedItem> EPHEDRA;
+    public static ItemEntry<ItemNameBlockItem> EPHEDRA_SEEDS;
     public static ItemEntry<Item> WHITE_PHOSPHORUS;
     public static ItemEntry<Item> RED_PHOSPHORUS;
     public static ItemEntry<Item> BRINE;
@@ -31,7 +30,7 @@ public class RItems {
     public static ItemEntry<Item> NITROGEN;
     public static ItemEntry<MethItem.Blue> BLUE_METH;
 
-    public static void registerItems(Registrate REGISTRATE) {
+    public static void register(Registrate REGISTRATE) {
         REGISTRATE.creativeModeTab(() -> Tab.CREATEBB);
 
         PSEUDOPHEDRINE = REGISTRATE.item("pseudophedrine", Item::new)
@@ -40,16 +39,16 @@ public class RItems {
         MATCH = REGISTRATE.item("match", MatchItem::new)
                 //.lang("Match")
                 .register();
-        SUDAFED = REGISTRATE.item("sudafed", Item::new)
+        SUDAFED = REGISTRATE.item("sudafed", p -> new ToolTippedItem("sudafed_tooltip", p))
                 //.lang("Sudafed")
                 .register();
-        SUDAFED_BOX = REGISTRATE.item("sudafed_box", Item::new)
+        SUDAFED_BOX = REGISTRATE.item("sudafed_box", p -> new ToolTippedItem("sudafed_box_tooltip", p))
                 //.lang("Sudafed Box")
                 .register();
-        EPHEDRA = REGISTRATE.item("ephedra", Item::new)
+        EPHEDRA = REGISTRATE.item("ephedra", p -> new ToolTippedItem("ephedra_tooltip", p))
                 //.lang("Ephedra")
                 .register();
-        EPHEDRA_SEEDS = REGISTRATE.item("ephedra_seeds", Item::new)
+        EPHEDRA_SEEDS = REGISTRATE.item("ephedra_seeds", p -> new ItemNameBlockItem(CBBBlocks.EPHEDRA_CROP_BLOCK.get(), p))
                 //.lang("Ephedra Seeds")
                 .register();
         WHITE_PHOSPHORUS = REGISTRATE.item("white_phosphorus", Item::new)

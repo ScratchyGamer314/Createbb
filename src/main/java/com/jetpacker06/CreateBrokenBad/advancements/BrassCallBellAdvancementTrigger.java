@@ -8,12 +8,15 @@ import net.minecraft.advancements.critereon.EntityPredicate;
 import net.minecraft.advancements.critereon.SimpleCriterionTrigger;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class BrassCallBellAdvancementTrigger extends SimpleCriterionTrigger<BrassCallBellAdvancementTrigger.TriggerInstance> {
 
     private static final ResourceLocation ID = new ResourceLocation(CreateBrokenBad.MOD_ID, "use_brass_call_bell");
 
-    public ResourceLocation getId() {
+    public @NotNull ResourceLocation getId() {
         return ID;
     }
 
@@ -22,7 +25,8 @@ public class BrassCallBellAdvancementTrigger extends SimpleCriterionTrigger<Bras
     }
 
     @Override
-    protected TriggerInstance createInstance(JsonObject json, EntityPredicate.Composite player, DeserializationContext conditionsParser) {
+    @ParametersAreNonnullByDefault
+    protected @NotNull TriggerInstance createInstance(JsonObject json, EntityPredicate.Composite player, DeserializationContext conditionsParser) {
         return new TriggerInstance(player);
     }
 
@@ -30,10 +34,6 @@ public class BrassCallBellAdvancementTrigger extends SimpleCriterionTrigger<Bras
     {
         public TriggerInstance(EntityPredicate.Composite player) {
             super(BrassCallBellAdvancementTrigger.ID, player);
-        }
-
-        public static TriggerInstance simple() {
-            return new TriggerInstance(EntityPredicate.Composite.ANY);
         }
 
         public boolean test() {

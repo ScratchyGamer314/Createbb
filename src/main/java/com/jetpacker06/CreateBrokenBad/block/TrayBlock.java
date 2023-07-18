@@ -13,10 +13,12 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.stream.Stream;
 
-public class TrayBlock extends Block {
+public abstract class TrayBlock extends Block {
     public TrayBlock(Properties p_49795_) {
         super(p_49795_);
     }
@@ -37,7 +39,9 @@ public class TrayBlock extends Block {
             Block.box(2, 1, 0, 3, 2, 16)
     ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get();
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    @ParametersAreNonnullByDefault
+    @SuppressWarnings("deprecation")
+    public @NotNull VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return pState.getValue(FACING) == Direction.NORTH || pState.getValue(FACING) == Direction.SOUTH ? shape : rotatedShape;
     }
     @Override
@@ -45,14 +49,18 @@ public class TrayBlock extends Block {
         return super.rotate(state, world, pos, direction);
     }
     @Override
-    public RenderShape getRenderShape(BlockState pState) {
+    @ParametersAreNonnullByDefault
+    @SuppressWarnings("deprecation")
+    public @NotNull RenderShape getRenderShape(BlockState pState) {
         return RenderShape.MODEL;
     }
     public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING);
     }
     @Override
-    public BlockState mirror(BlockState pState, Mirror pMirror) {
+    @ParametersAreNonnullByDefault
+    @SuppressWarnings("deprecation")
+    public @NotNull BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
     @Override
@@ -60,7 +68,9 @@ public class TrayBlock extends Block {
         return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
     }
     @Override
-    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    @ParametersAreNonnullByDefault
+    @SuppressWarnings("deprecation")
+    public @NotNull VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return pState.getValue(FACING) == Direction.NORTH || pState.getValue(FACING) == Direction.SOUTH ? shape : rotatedShape;
     }
     public static class White extends TrayBlock {

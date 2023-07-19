@@ -5,6 +5,7 @@ import com.jetpacker06.CreateBrokenBad.block.EphedraBlock;
 import com.jetpacker06.CreateBrokenBad.block.TrayBlock;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.entry.BlockEntry;
+import net.minecraft.world.level.block.Blocks;
 
 public class CBBBlocks {
 
@@ -19,6 +20,7 @@ public class CBBBlocks {
         REGISTRATE.creativeModeTab(() -> Tab.CREATEBB);
 
         EPHEDRA_CROP_BLOCK = REGISTRATE.block("ephedra_crop_block", EphedraBlock::new)
+                .initialProperties(() -> Blocks.BEETROOTS)
                 //.lang("Ephedra Crop")
                 .register();
         BRASS_CALL_BELL = REGISTRATE.block("brass_call_bell", BrassCallBellBlock::new)

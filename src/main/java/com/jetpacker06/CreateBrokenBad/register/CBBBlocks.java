@@ -17,8 +17,6 @@ public class CBBBlocks {
     public static BlockEntry<TrayBlock.White> WHITE_METH_TRAY;
 
     public static void register(Registrate REGISTRATE) {
-        REGISTRATE.creativeModeTab(() -> Tab.CREATEBB);
-
         EPHEDRA_CROP_BLOCK = REGISTRATE.block("ephedra_crop_block", EphedraBlock::new)
                 .initialProperties(() -> Blocks.BEETROOTS)
                 //.lang("Ephedra Crop")

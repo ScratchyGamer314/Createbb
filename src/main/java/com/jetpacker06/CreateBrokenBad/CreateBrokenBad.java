@@ -17,6 +17,7 @@ public class CreateBrokenBad {
     public CreateBrokenBad() {
         Registrate registrate = Registrate.create(MOD_ID);
 
+
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         AllSoundEvents.register(eventBus);
 
@@ -24,6 +25,7 @@ public class CreateBrokenBad {
         CBBBlocks.register(registrate);
         CBBFluids.register(registrate);
         CBBBlockEntityTypes.register(registrate);
+        Tab.register(registrate, eventBus);
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);

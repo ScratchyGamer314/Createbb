@@ -1,6 +1,9 @@
 package com.jetpacker06.CreateBrokenBad.register;
 
-import com.jetpacker06.CreateBrokenBad.item.*;
+import com.jetpacker06.CreateBrokenBad.item.MatchItem;
+import com.jetpacker06.CreateBrokenBad.item.MethItem;
+import com.jetpacker06.CreateBrokenBad.item.NonConsumedCatalystItem;
+import com.jetpacker06.CreateBrokenBad.item.ToolTippedItem;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.entry.ItemEntry;
 import net.minecraft.world.item.Item;
@@ -31,7 +34,6 @@ public class CBBItems {
     public static ItemEntry<MethItem.Blue> BLUE_METH;
 
     public static void register(Registrate REGISTRATE) {
-        REGISTRATE.creativeModeTab(() -> Tab.CREATEBB);
 
         PSEUDOPHEDRINE = REGISTRATE.item("pseudophedrine", Item::new)
                 //.lang("Pseudophedrine")

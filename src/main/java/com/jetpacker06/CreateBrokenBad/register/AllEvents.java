@@ -19,6 +19,7 @@ public class AllEvents {
     @SubscribeEvent
     public static void addTrade(VillagerTradesEvent event) {
         Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
+        if (event.getType() == VillagerProfession.NITWIT) return;
         if (event.getType() == VillagerProfession.FARMER) {
             ItemStack inputStack = new ItemStack(Items.EMERALD, 2);
             ItemStack outputStack = new ItemStack(CBBItems.EPHEDRA.get(), 8);

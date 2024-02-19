@@ -3,8 +3,12 @@ package com.jetpacker06.CreateBrokenBad.register;
 import com.jetpacker06.CreateBrokenBad.item.*;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.entry.ItemEntry;
-import net.minecraft.world.item.*;
-import net.minecraftforge.common.util.NonNullFunction;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.BucketItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 
 public class CBBItems {
     public static ItemEntry<MatchItem> MATCH;
@@ -72,6 +76,12 @@ public class CBBItems {
         COPPER_ZINC_CATALYST = REGISTRATE.item("copper_zinc_catalyst", NonConsumedCatalystItem::new)
                 .register();
         CYANIDE = REGISTRATE.item("cyanide", Item::new)
+                .properties(p -> p.food(new FoodProperties.Builder()
+                        .alwaysEat()
+                        .nutrition(1)
+                        .effect(() -> new MobEffectInstance(MobEffects.POISON, 60, 4), 1)
+                        .build()
+                ))
                 .register();
         ALUMINOSILICATE_CATALYST = REGISTRATE.item("aluminosilicate_catalyst", NonConsumedCatalystItem::new)
                 .register();

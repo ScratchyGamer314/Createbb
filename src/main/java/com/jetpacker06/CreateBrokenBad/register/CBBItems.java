@@ -6,6 +6,9 @@ import com.jetpacker06.CreateBrokenBad.item.NonConsumedCatalystItem;
 import com.jetpacker06.CreateBrokenBad.item.ToolTippedItem;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 
@@ -79,7 +82,12 @@ public class CBBItems {
                 //.lang("Copper-Zinc Catalyst")
                 .register();
         CYANIDE = REGISTRATE.item("cyanide", Item::new)
-                //.lang("Ephedra Seeds")
+                .properties(p -> p.food(new FoodProperties.Builder()
+                        .alwaysEat()
+                        .nutrition(1)
+                        .effect(() -> new MobEffectInstance(MobEffects.POISON, 60, 4), 1)
+                        .build()
+                ))
                 .register();
         ALUMINOSILICATE_CATALYST = REGISTRATE.item("aluminosilicate_catalyst", NonConsumedCatalystItem::new)
                 //.lang("Aluminosilicate Catalyst")

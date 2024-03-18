@@ -4,7 +4,7 @@
       "item": "createbb:blue_meth"
     },
     "title": "The Blue Stuff",
-    "description": "Crack a tray of blue meth.",
+    "description": "Crack a tray of blue stuff.",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true

@@ -7,6 +7,7 @@
 <h3 align="center">by jetpacker06</h3>
 <p align="center">
 This mod is an addon to Create which enables the player to produce and sell new chemicals.<br>
+Download on Curseforge or from #create-broken-bad in the discord server.<br>
 Start by buying Ephedra from a Farmer villager (lvl1 trade), then sell your product to villagers! (lvl2 or 3 trade)<br>
 <a href="https://www.buymeacoffee.com/jetpacker06">Buy me a coffee<3</a><br>
 Started 4/12/22.<br>

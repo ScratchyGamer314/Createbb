@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "createbb:item/phenylacetic_acid_bucket"
-  }
-}

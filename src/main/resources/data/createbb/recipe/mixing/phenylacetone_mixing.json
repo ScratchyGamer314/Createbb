@@ -1,0 +1,21 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "type": "fluid_stack",
+      "fluid": "createbb:phenylacetic_acid",
+      "amount": 50
+    },
+    {
+      "type": "fluid_stack",
+      "fluid": "createbb:acetic_anhydride",
+      "amount": 50
+    }
+  ],
+  "results": [
+    {
+      "id": "createbb:phenylacetone",
+      "amount": 100
+    }
+  ]
+}

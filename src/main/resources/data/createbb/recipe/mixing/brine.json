@@ -1,0 +1,23 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "type": "fluid_stack",
+      "fluid": "minecraft:water",
+      "amount": 200
+    },
+    {
+      "item": "createbb:aluminosilicate_catalyst"
+    }
+  ],
+  "results": [
+    {
+      "id": "createbb:brine"
+    },
+    {
+      "id": "createbb:aluminosilicate_catalyst",
+      "count": 1
+    }
+  ],
+  "heatRequirement": "heated"
+}

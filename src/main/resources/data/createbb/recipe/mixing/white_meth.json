@@ -1,0 +1,26 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "createbb:pseudophedrine"
+    },
+    {
+      "item": "createbb:red_phosphorus"
+    },
+    {
+      "item": "createbb:iodine"
+    },
+    {
+      "type": "fluid_stack",
+      "fluid": "minecraft:water",
+      "amount": 200
+    }
+  ],
+  "results": [
+    {
+      "id": "createbb:liquid_methamphetamine",
+      "amount": 200
+    }
+  ],
+  "heatRequirement": "heated"
+}

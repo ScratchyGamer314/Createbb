@@ -1,0 +1,22 @@
+{
+  "type": "create:mechanical_crafting",
+  "accept_mirrored": false,
+  "category": "misc",
+  "pattern": [
+    "A",
+    "B"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:stick"
+    },
+    "A": {
+      "item": "createbb:red_phosphorus"
+    }
+  },
+  "result": {
+    "id": "createbb:match",
+    "count": 4
+  },
+  "show_notification": false
+}

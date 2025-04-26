@@ -1,0 +1,19 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "createbb:tray"
+    },
+    {
+      "type": "fluid_stack",
+      "fluid": "createbb:liquid_methamphetamine",
+      "amount": 200
+    }
+  ],
+  "results": [
+    {
+      "id": "createbb:white_meth_tray",
+      "count": 1
+    }
+  ]
+}

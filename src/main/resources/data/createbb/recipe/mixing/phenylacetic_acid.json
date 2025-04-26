@@ -1,0 +1,23 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "type": "fluid_stack",
+      "fluid": "minecraft:water",
+      "amount": 100
+    },
+    {
+      "item": "createbb:cyanide"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:water",
+      "amount": 75
+    },
+    {
+      "id": "createbb:phenylacetic_acid",
+      "amount": 100
+    }
+  ]
+}

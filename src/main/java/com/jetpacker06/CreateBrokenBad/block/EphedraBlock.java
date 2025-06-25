@@ -23,8 +23,8 @@ public class EphedraBlock extends CropBlock {
     }
 
     @Override
-    public @NotNull IntegerProperty getAgeProperty() {
-        return CROP_AGE;
+    protected @NotNull IntegerProperty getAgeProperty() {
+        return AGE;
     }
 
     @Override

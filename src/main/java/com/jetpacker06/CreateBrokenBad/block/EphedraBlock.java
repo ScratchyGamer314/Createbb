@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class EphedraBlock extends CropBlock {
     public static final int MAX_AGE = 3;
-    public static final IntegerProperty CROP_AGE = IntegerProperty.create("age", 0, MAX_AGE);
+    public static final IntegerProperty CROP_AGE = IntegerProperty.create("age", 0, 3);
 
     public EphedraBlock(Properties properties) {
         super(properties);
